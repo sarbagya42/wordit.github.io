@@ -19,6 +19,7 @@ class words
         m=m+1;
         cout<<endl;
     }
+    void term();
     void store()
     {
       strcpy(stores[c],word[c]);
@@ -43,6 +44,7 @@ class words
                   {
                       cout<<endl;
                       cout<<"GENIUS!!"<<endl;
+                      term();
                   }
               }
               else if(j!=k)
@@ -60,7 +62,13 @@ class words
  }
 }
 };
-
+void words::term()
+{
+    cout<<endl;
+    cout<<"!!GAME OVER!!"<<endl;
+    exit(3);
+    cout<<endl;
+}
 void words::allout(int f)
 {
 cout<<endl;
