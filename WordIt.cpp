@@ -43,7 +43,7 @@ class words
                   if(w==5)
                   {
                       cout<<endl;
-                      cout<<"GENIUS!!"<<endl;
+                      cout<<"!!GENIUS!!"<<endl;
                       term();
                   }
               }
