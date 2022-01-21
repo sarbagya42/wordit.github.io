@@ -67,6 +67,7 @@ void words::term()
     cout<<endl;
     cout<<"!!GAME OVER!!"<<endl;
     cout<<endl;
+    getch();
     exit(3);
 }
 void words::allout(int f)
