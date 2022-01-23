@@ -6,14 +6,30 @@
 #include<windows.h>
 using namespace std;
 int i,j,k,c=0,m=0,v=0;
-char stores[6][35];
+char stores[6][35],o;
 int a[10][10],p,b[10][10];
 class words
  {
  private:
-     char word[6][20],mainword[5][6]={"danky"};
+     char word[6][20],mainword[5][6]={"crimp"};
      int w=0;
  public:
+    void intro()
+    {
+        cout<<endl;
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
+        cout<<"WELCOME TO WORD-IT"<<endl<<endl;
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE);
+        cout<<"Here are the RULES of the Game:"<<endl<<endl;
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
+            cout<<"RED: Letter exists but Wrong Position"<<endl;
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE);
+            cout<<"BLUE:Letter doesn't Exist in the Word"<<endl;
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
+            cout<<"GREEN:Letter exists and in Right Position"<<endl;
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE);
+        
+   }
     void input()
     {
         cout<<endl;
@@ -168,6 +184,7 @@ int main()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE);
     words w1,w2,w3,w4,w5,w6;
+    w1.intro();
     w1.input();
     w1.store();
     w1.display(0);
