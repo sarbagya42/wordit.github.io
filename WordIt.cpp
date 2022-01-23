@@ -1,17 +1,22 @@
+#include <stdio.h>
+#include<time.h>
 #include<iostream>
 #include<string.h>
 #include<stdlib.h>
 #include<conio.h>
 #include<string>
 #include<windows.h>
+#include <fstream>
 using namespace std;
 int i,j,k,c=0,m=0,v=0;
 char stores[6][35],o;
+char mainword[5][6];
+std::string s;
 int a[10][10],p,b[10][10];
 class words
  {
  private:
-     char word[6][20],mainword[5][6]={"crimp"};
+     char word[6][20];
      int w=0;
  public:
     void intro()
@@ -83,7 +88,16 @@ void words::clear(int z)
     if(z==1)
     {
      cout<<endl;
-    cout<<endl<<"!!OUT OF TRIES"<<endl<<"!!BETTER LUCK NEXT TIME!!"<<endl;
+     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
+    cout<<endl<<"!!OUT OF TRIES!!"<<endl<<endl;
+     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
+    cout<<"!!BETTER LUCK NEXT TIME!!"<<endl;
+    cout<<endl<<"THE WORD WAS:"<<endl;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
+    for(i=0; i<5; i++)
+    {
+        cout<<" "<<mainword[0][i];
+    }
     }
     if(z==2)
     {
@@ -182,6 +196,28 @@ void words::indout(int y)
 
 int main()
 {
+    int randy;
+    int LINE;
+    srand(time(0));
+    randy=rand()%200;
+    LINE=randy;
+    std::ifstream f("word.txt");
+    for (int i = 1; i <= LINE; i++){
+    getline(f, s);
+    }
+    for(i=0; i<5; i++)
+    {
+
+        if(i==0)
+        {
+         s[i]=s[i]+32;
+         mainword[0][i]=s[i];
+        }
+        else
+        {
+            mainword[0][i]=s[i];
+        }
+    }
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE);
     words w1,w2,w3,w4,w5,w6;
     w1.intro();
