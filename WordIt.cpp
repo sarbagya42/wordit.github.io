@@ -192,7 +192,6 @@ int main()
     for (int i = 1; i <= LINE; i++){
     getline(f, s);
     }
-    s="Sickl";
     for(i=0; i<5; i++)
     {
 
