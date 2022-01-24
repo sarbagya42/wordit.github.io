@@ -17,7 +17,7 @@ class words
  {
  private:
      char word[6][20];
-     int w=0;
+     int w=0,u=0;
  public:
     void intro()
     {
@@ -59,6 +59,7 @@ class words
     for(i=z; i<6; i++)
    {
        v=v+1;
+       u=u+1;
     for(j=0; j<5; j++)
     {
        for(k=0; k<5; k++)
@@ -92,52 +93,38 @@ void words::clear(int z)
     cout<<endl<<"!!OUT OF TRIES!!"<<endl<<endl;
      SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
     cout<<"!!BETTER LUCK NEXT TIME!!"<<endl;
-    cout<<endl<<"THE WORD WAS:"<<endl;
+    cout<<endl<<"THE WORD WAS:"<<endl<<endl;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
     for(i=0; i<5; i++)
     {
         cout<<" "<<mainword[0][i];
     }
-    }
-    if(z==2)
-    {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
-    getch();
-    system("cls");
     }
     cout<<endl;
     cout<<endl;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE);
     cout<<"PRESS ANY KEY TO CONTINUE"<<endl;
-    getch();
+     getch();
+    system("cls");
+    allout(c);
 }
 void words::term()
 {
+if(v==1)
+{
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
-    if(v==1)
-    {
-    cout<<"!!GENIUS!!"<<endl<<endl;
-    for(i=0; i<5; i++)
-    {
-        cout<<" "<<mainword[0][i];
-    }
-    }
-    else
-    {
-    allout(v);
-    for(i=0; i<5; i++)
-    {
-       SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
-        cout<<" "<<mainword[0][i];
-    }
-    cout<<endl;
-    cout<<endl<<"PERFECTO!!YOU GOT IT!"<<endl<<endl;
-    }
-    cout<<endl;
-    cout<<"!!WINNER!!"<<endl;
-    cout<<endl;
-    getch();
-    exit(3);
+    cout<<endl<<"!!GENIUS!!"<<endl<<endl;
+}
+  allout(c-1);
+  for(i=0; i<5; i++)
+  {
+      SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
+      cout<<" "<<mainword[0][i];
+  }
+  SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
+  cout<<endl<<endl<<"PERFECTO!! YOU GOT IT !!"<<endl;
+  cout<<endl<<endl<<"!!WINNER!!"<<endl<<endl;
+   exit(0);
 }
 void words::allout(int f)
 {
@@ -205,6 +192,7 @@ int main()
     for (int i = 1; i <= LINE; i++){
     getline(f, s);
     }
+    s="Sickl";
     for(i=0; i<5; i++)
     {
 
